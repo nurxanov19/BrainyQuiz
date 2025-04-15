@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainyQuiz - Create & Solve Tests</title>
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Floating Brain Animation -->
+    <div class="floating-brain"></div>
+    <div class="floating-brain second"></div>
+    <div class="floating-brain third"></div>
+
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{% static 'assets/images/brain-icon.png' %}" alt="BrainyQuiz Logo">
+                <h1>Brainy<span>Quiz</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="{% url 'add-test' %}">Add Test</a></li>
+                    <li><a href="{% url 'profile' %}">My Profile</a></li>
+                    <li><a href="{% url 'quizzes' %}">Browse Tests</a></li>
+                    <li><a href="{% url 'login' %}" class="btn-login">Login/Signup</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Create, Share & Solve Interactive Quizzes</h2>
+                <p>Boost your knowledge or test others with our powerful quiz platform</p>
+                <div class="hero-buttons">
+                    <a href="{% url 'add-test' %}" class="btn-primary">Create a Test</a>
+                    <a href="{% url 'quizzes' %}" class="btn-secondary">Browse Tests</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'assets/images/hero-animation.png' %}" alt="Quiz Illustration" class="pulse-animation">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose BrainyQuiz?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Smart Creation</h3>
+                    <p>Intuitive interface for creating quizzes with various question types.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Detailed Analytics</h3>
+                    <p>Get insights into test performance and user answers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaborate</h3>
+                    <p>Work with others to create the perfect quiz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Packages Section -->
+    <section class="test-packages">
+        <div class="container">
+            <h2 class="section-title">Popular Test Packages</h2>
+            <div class="filter-options">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Education</button>
+                <button class="filter-btn">Trivia</button>
+                <button class="filter-btn">Professional</button>
+                <button class="filter-btn">Fun</button>
+            </div>
+            <div class="test-grid">
+                <!-- Test Package 1 -->
+                <div class="test-card">
+                    <div class="test-image">
+                        <img src="https://via.placeholder.com/300x200" alt="JavaScript Quiz">
+                        <span class="category-badge">Education</span>
+                    </div>
+                    <div class="test-content">
+                        <h3>JavaScript Fundamentals</h3>
+                        <p class="test-description">Test your knowledge of JavaScript basics and core concepts.</p>
+                        <div class="test-meta">
+                            <span><i class="fas fa-question-circle"></i> 20 Questions</span>
+                            <span><i class="fas fa-user"></i> 1.2k Attempts</span>
+                        </div>
+                        <a href="test.html" class="btn-test">Start Test</a>
+                    </div>
+                </div>
+
+                <!-- Test Package 2 -->
+                <div class="test-card">
+                    <div class="test-image">
+                        <img src="https://via.placeholder.com/300x200" alt="World Capitals">
+                        <span class="category-badge">Trivia</span>
+                    </div>
+                    <div class="test-content">
+                        <h3>World Capitals Challenge</h3>
+                        <p class="test-description">How many world capitals can you name correctly?</p>
+                        <div class="test-meta">
+                            <span><i class="fas fa-question-circle"></i> 50 Questions</span>
+                            <span><i class="fas fa-user"></i> 856 Attempts</span>
+                        </div>
+                        <a href="test.html" class="btn-test">Start Test</a>
+                    </div>
+                </div>
+
+                <!-- Test Package 3 -->
+                <div class="test-card">
+                    <div class="test-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Personality Test">
+                        <span class="category-badge">Fun</span>
+                    </div>
+                    <div class="test-content">
+                        <h3>Which Programming Language Are You?</h3>
+                        <p class="test-description">Fun personality test to discover which programming language matches your personality.</p>
+                        <div class="test-meta">
+                            <span><i class="fas fa-question-circle"></i> 15 Questions</span>
+                            <span><i class="fas fa-user"></i> 2.3k Attempts</span>
+                        </div>
+                        <a href="test.html" class="btn-test">Start Test</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="browse.html" class="btn-view-all">View All Test Packages <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Create Your Own Quiz?</h2>
+            <p>Join thousands of educators, trainers, and quiz enthusiasts who use BrainyQuiz</p>
+            <a href="add-test.html" class="btn-primary">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo">
+                        <img src="{% static 'images/brain-icon.png' %}" alt="BrainyQuiz Logo">
+                        <h1>Brainy<span>Quiz</span></h1>
+                    </div>
+                    <p>The ultimate platform for creating and solving interactive quizzes and tests.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="browse.html">Browse Tests</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="api.html">API</a></li>
+                        <li><a href="status.html">System Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on new features and tests.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BrainyQuiz. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'assets/js/script.js' %}"></script>
+</body>
+</html>
