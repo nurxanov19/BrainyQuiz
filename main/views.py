@@ -12,5 +12,3 @@ def quizzes(request):
 def quiz(request):
     return render(request, 'quiz.html')
 
-def profile(request):
-    return render(request, 'registration/profile.html')

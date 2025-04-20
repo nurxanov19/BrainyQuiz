@@ -1,0 +1,112 @@
+/* Profile Update Section */
+.auth-section.profile-section {
+    padding-top: 100px; /* Navbar ostidan bo‘sh joy */
+}
+
+.auth-section.profile-section .card {
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff; /* Fonni oq qilish */
+    margin-top: 20px; /* Navbar bilan masofa */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1; /* Navbar ostida qolmaslik uchun */
+}
+
+.auth-section.profile-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+    font-size: 2rem; /* Sarlavha shriftini kattalashtirish */
+    color: #333; /* Kontrast qora rang */
+    font-weight: 700;
+}
+
+.profile-image img.rounded-circle {
+    width: 120px; /* Rasmni biroz kattalashtirish */
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid var(--primary); /* Qalinroq chegara */
+    border-radius: 50%;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.profile-image img.rounded-circle:hover {
+    border-color: Blue;
+    background-color: Green;
+    transform: scale(1.05);
+}
+
+.profile-image .btn-primary {
+    background-color: Blue;
+    border: none;
+    font-size: 1rem; /* Tugma shriftini kattalashtirish */
+    padding: 8px 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.profile-image .btn-primary:hover {
+    background-color: Green;
+    transform: scale(1.05);
+}
+
+.d-none {
+    display: none;
+}
+
+.form-label {
+    font-size: 1.1rem; /* Label shriftini kattalashtirish */
+    color: #333; /* Kontrast qora rang */
+    font-weight: 500;
+}
+
+.form-control {
+    border-radius: 6px;
+    border: 2px solid #ccc; /* Qalinroq chegara */
+    font-size: 1.1rem; /* Shriftni kattalashtirish */
+    color: #333; /* Matnni kontrast qilish */
+    background-color: #f8f9fc; /* Yengil fon */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
+    background-color: #ffffff; /* Fokusda oq fon */
+}
+
+.btn-primary.pulse {
+    animation: pulse 2s infinite;
+    font-size: 1.1rem; /* Tugma shriftini kattalashtirish */
+    padding: 10px 20px;
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    border: none;
+    font-size: 1.1rem; /* Tugma shriftini kattalashtirish */
+    padding: 10px 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c6392a; /* Hover’da yorqinroq qizil */
+    transform: scale(1.05);
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem; /* Maydonlar orasida ko‘proq masofa */
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
+
+.d-flex.justify-content-between {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem; /* Tugmalar orasida ko‘proq masofa */
+}

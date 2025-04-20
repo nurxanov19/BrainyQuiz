@@ -25,9 +25,13 @@
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
                     <li><a href="{% url 'add-test' %}">Add Test</a></li>
-                    <li><a href="{% url 'profile' %}">My Profile</a></li>
                     <li><a href="{% url 'quizzes' %}">Browse Tests</a></li>
-                    <li><a href="{% url 'login' %}" class="btn-login">Login/Signup</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'profile' request.user.id %}">My Profile</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}" class="btn-login">Login</a></li>
+                    <li><a href="{% url 'signup' %}" class="btn-login">SignUp</a></li>
+                    {% endif %}
                 </ul>
             </nav>
             <div class="mobile-menu">
