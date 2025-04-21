@@ -15,7 +15,7 @@
     <!-- Navbar (same as index.html) -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="index.html">BrainyQuiz</a>
+            <a class="navbar-brand fw-bold text-primary" href="{% url 'index' %}">BrainyQuiz</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,7 +25,7 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'quizzes' %}">Quizzes</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'add-test' %}">Add Quiz</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login/Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' user.id %}">Profile</a></li>
                 </ul>
             </div>
         </div>
@@ -38,11 +38,12 @@
                 <div class="col-md-4" data-aos="fade-right">
                     <div class="card shadow-sm text-center">
                         <div class="card-body">
-                            <img src="assets/images/placeholder.jpg" class="rounded-circle mb-3" alt="Profile" width="100">
-                            <h4>John Doe</h4>
+                            <img src="{% if user.image %}{{ request.user.image.url}} {% else %} {{ user.username }} {% endif %}" class="rounded-circle mb-3" alt="{{ user.username }}" width="100">
+                            <h4>{{ user.username }}</h4>
                             <p class="text-muted">Quiz Enthusiast</p>
-                            <button class="btn btn-outline-primary w-100 mb-2" onclick="alert('Edit Profile - Not Implemented')">Edit Profile</button>
-                            <button class="btn btn-danger w-100" onclick="alert('Logged out!')">Logout</button>
+                            <a href="{% url 'profile_update' user.id %}"><button class="btn btn-outline-primary w-100 mb-2">Edit Profile</button></a>
+                            <a href="{% url 'profile_logout' user.id %}"><button class="btn btn-danger w-100 mb-3" type="submit">Logout</button></a>
+                            <a href="{% url 'profile_delete' id=user.id %}"><button class="btn btn-danger w-100">Delete Profile</button></a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +92,7 @@
     <!-- Footer (same as index.html) -->
     <footer class="bg-dark text-white text-center py-4 mt-auto">
         <div class="container">
-            <p class="mb-2">© 2025 BrainyQuiz. All rights reserved.</p>
+            <p class="mb-2">© 2025 SmartQuiz Pro. All rights reserved.</p>
             <div>
                 <a href="#" class="text-white mx-2"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="text-white mx-2"><i class="bi bi-twitter"></i></a>

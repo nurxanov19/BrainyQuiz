@@ -1,0 +1,120 @@
+/* Profile Delete Section */
+.auth-section.profile-section {
+    padding-top: 120px; /* Navbar ostidan ko‘proq bo‘sh joy */
+    background: linear-gradient(135deg, var(--secondary), var(--primary)); /* Zamonaviy gradient fon */
+    min-height: 80vh; /* Bo‘lim balandligi */
+    display: flex;
+    align-items: center;
+}
+
+.auth-section.profile-section .card {
+    border-radius: 12px;
+    padding: 30px; /* Ko‘proq ichki bo‘sh joy */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Kuchliroq soya */
+    background-color: #ffffff; /* Oq fon */
+    border: 2px solid var(--primary); /* Qalin chegara */
+    margin: 0 auto;
+    max-width: 600px; /* Karta kengligini cheklash */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1; /* Navbar ostida qolmaslik */
+    animation: zoomIn 0.5s ease; /* Yangi kirish animatsiyasi */
+}
+
+.auth-section.profile-section .card:hover {
+    transform: translateY(-8px); /* Hover’da ko‘proq ko‘tarilish */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+    font-size: 2.2rem; /* Katta sarlavha */
+    color: Blue; /* Oq rang gradient fonga mos */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    animation: slideIn 0.5s ease;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, var(--danger), #c6392a); /* Gradient ogohlantirish */
+    color: #ffffff; /* Oq matn */
+    border: 2px solid #ffffff; /* Oq chegara */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px; /* Ko‘proq masofa */
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Ikonka va matn orasida masofa */
+    animation: fadeIn 0.7s ease;
+}
+
+.alert-danger .alert-icon {
+    font-size: 1.5rem; /* Ikonka o‘lchami */
+}
+
+.alert-danger .alert-heading {
+    font-size: 1.4rem; /* Katta sarlavha */
+    font-weight: 600;
+    color: Blue;
+    margin: 0;
+}
+
+.alert-danger p {
+    font-size: 1.1rem; /* O‘qiladigan matn */
+    margin: 0;
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Kulrang tugma */
+    border: none;
+    font-size: 1.1rem; /* Katta shrift */
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Hover’da qorayish */
+    transform: scale(1.08); /* Kattalashtirish */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-danger {
+    background-color: Green; /* Qizil tugma */
+    border: none;
+    font-size: 1.1rem; /* Katta shrift */
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger.pulse {
+    animation: pulse 2s infinite;
+}
+
+.btn-danger:hover {
+    background-color: #c6392a; /* Hover’da yorqinroq qizil */
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.d-flex.justify-content-between {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem; /* Tugmalar orasida ko‘proq masofa */
+    margin-top: 20px;
+}
+
+/* Yangi ZoomIn animatsiyasi */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

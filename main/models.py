@@ -12,7 +12,7 @@ class Category(models.Model):
 
 
 class Test(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey('users.User', on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=400, blank=True, null=True)
@@ -39,7 +39,7 @@ class Question(models.Model):
 
 
 class CheckTest(models.Model):
-    student = models.ForeignKey(User, on_delete=models.CASCADE)
+    student = models.ForeignKey('users.User', on_delete=models.CASCADE)
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
     found_questions = models.PositiveBigIntegerField(default=0)
     user_passed = models.BooleanField(default=0)

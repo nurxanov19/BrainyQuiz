@@ -25,9 +25,13 @@
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
                     <li><a href="{% url 'add-test' %}">Add Test</a></li>
-                    <li><a href="{% url 'profile' %}">My Profile</a></li>
                     <li><a href="{% url 'quizzes' %}">Browse Tests</a></li>
-                    <li><a href="{% url 'login' %}" class="btn-login">Login/Signup</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'profile' request.user.id %}">My Profile</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}" class="btn-login">Login</a></li>
+                    <li><a href="{% url 'signup' %}" class="btn-login">SignUp</a></li>
+                    {% endif %}
                 </ul>
             </nav>
             <div class="mobile-menu">
@@ -98,7 +102,7 @@
             {% for test in tests %}
                 <div class="test-card">
                     <div class="test-image">
-                        <img src="https://via.placeholder.com/300x200" alt="JavaScript Quiz">
+                        <img src="https://via.placeholder.com/300x200" alt=  "{{test.category}} Quiz">
                         <span class="category-badge">{{test.category}}</span>
                     </div>
                     <div class="test-content">
@@ -135,7 +139,7 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <div class="logo">
-                        <img src="{% static 'images/brain-icon.png' %}" alt="BrainyQuiz Logo">
+                            <img src="{% static 'assets/images/brain-icon.png' %}" alt="BrainyQuiz Logo">
                         <h1>Brainy<span>Quiz</span></h1>
                     </div>
                     <p>The ultimate platform for creating and solving interactive quizzes and tests.</p>

@@ -85,5 +85,3 @@ def quizzes(request):
     return render(request, 'quizzes.html', context)
 
 
-def profile(request):
-    return render(request, 'registration/profile.html')
