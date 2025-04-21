@@ -92,11 +92,9 @@
         <div class="container">
             <h2 class="section-title">Popular Test Packages</h2>
             <div class="filter-options">
-                <button class="filter-btn active">All</button>
-                <button class="filter-btn">Education</button>
-                <button class="filter-btn">Trivia</button>
-                <button class="filter-btn">Professional</button>
-                <button class="filter-btn">Fun</button>
+                {% for category in al_categories %}
+                <button class="filter-btn active">{{ category.name }}</button>
+                {% endfor %}
             </div>
             <div class="test-grid">
             {% for test in tests %}

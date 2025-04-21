@@ -13,7 +13,8 @@ def count_of_questions(request, test_id):
 
 def index(request):
     tests = Test.objects.all()
-    context = {'tests': tests}
+    al_categories = Category.objects.all()
+    context = {'tests': tests, 'al_categories' : al_categories}
     return render(request, 'index.html', context)
 
 def quiz(request, test_id):
