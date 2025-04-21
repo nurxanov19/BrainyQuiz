@@ -45,9 +45,9 @@ class LoginView(View):
 
 class ProfileView(View):
     def get(self, request, id):
-        user = get_object_or_404(User, id=id)
+        user = request.user
         saveds = Saved.objects.filter(author_id=id)
-        my_quizzes = Test.objects.filter(author_id=id)
+        my_quizzes = Test.objects.filter(author_id=user.id)
 
         context = {
         'saveds':saveds,
@@ -99,6 +99,3 @@ class LogoutView(View):
         user = get_object_or_404(User, id=id)
         logout(request)
         return redirect('index')
-
-
-

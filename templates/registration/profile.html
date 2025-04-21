@@ -76,7 +76,20 @@
                                     </table>
                                 </div>
                                 <div class="tab-pane fade" id="my-quizzes">
-                                    <p>No quizzes created yet.</p>
+                                    {% if my_quizzes %}
+                                        <ul class="list-group">
+                                            {% for quiz in my_quizzes %}
+                                            <a href="{% url 'quiz' quiz.id %}">
+                                                <li class="list-group-item">
+                                                    <h5>{{ quiz.title }}</h5>
+                                                    <p><strong>Category:</strong> {{ quiz.category.name }}</p>
+                                                </li>
+                                            </a>
+                                            {% endfor %}
+                                        </ul>
+                                    {% else %}
+                                        <p>No quizzes created yet.</p>
+                                    {% endif %}
                                 </div>
                                 <div class="tab-pane fade" id="saved">
                                     <p>No saved quizzes.</p>
