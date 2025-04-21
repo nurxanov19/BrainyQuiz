@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Test</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Test Results: {{ checktest.test.title }}</h2>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Overall Performance</h5>
+            <p class="card-text">
+                <strong>Student:</strong> {{ checktest.student.username }}<br>
+                <strong>Percentage:</strong> {{ checktest.percentage }}%<br>
+                <strong>Passed:</strong> {% if checktest.user_passed %}Yes{% else %}No{% endif %}<br>
+                <strong>Passing Percentage:</strong> {{ checktest.test.pass_percentage }}%
+            </p>
+        </div>
+    </div>
+
+    <h4>Question Details</h4>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Question</th>
+                <th>Your Answer</th>
+                <th>Correct Answer</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for check_question in check_questions %}
+            <tr class="{% if check_question.is_true %}table-success{% else %}table-danger{% endif %}">
+                <td>{{ check_question.question.question }}</td>
+                <td>{{ check_question.given_answer|upper }}</td>
+                <td>{{ check_question.true_answer|upper }}</td>
+                <td>
+                    {% if check_question.is_true %}
+                        <span class="text-success">✓ Correct</span>
+                    {% else %}
+                        <span class="text-danger">✗ Wrong</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="mt-4">
+        <h5>Summary</h5>
+        <p>
+            Total Questions: {{ checktest.found_questions }}<br>
+            Correct Answers: {{ correct_count }}<br>
+            Wrong Answers: {{ wrong_count }}
+        </p>
+    </div>
+
+    <a href="{% url 'quizzes' %}" class="btn btn-primary mt-3">Back to Tests</a>
+</div>
+
+</body>
+</html>

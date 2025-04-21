@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Question</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<section class="add-quiz py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Add Question to "{{ test.title }}"</h2>
+        <form method="post" class="card shadow-sm p-4" data-aos="fade-up" data-aos-delay="100">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                {{ q_form.question.label_tag }}
+                {{ q_form.question }}
+                {% if q_form.question.errors %}
+                    <div class="text-danger">{{ q_form.question.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                {{ q_form.a.label_tag }}
+                {{ q_form.a }}
+                {% if q_form.a.errors %}
+                    <div class="text-danger">{{ q_form.a.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                {{ q_form.b.label_tag }}
+                {{ q_form.b }}
+                {% if q_form.b.errors %}
+                    <div class="text-danger">{{ q_form.b.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                {{ q_form.c.label_tag }}
+                {{ q_form.c }}
+                {% if q_form.c.errors %}
+                    <div class="text-danger">{{ q_form.c.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                {{ q_form.true_answer.label_tag }}
+                {{ q_form.true_answer }}
+                {% if q_form.true_answer.errors %}
+                    <div class="text-danger">{{ q_form.true_answer.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-check mb-3">
+                {{ q_form.submit_and_exit }}
+                {{ q_form.submit_and_exit.label_tag }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Save and Continue</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>
+

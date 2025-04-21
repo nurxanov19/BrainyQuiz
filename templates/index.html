@@ -95,56 +95,24 @@
                 <button class="filter-btn">Fun</button>
             </div>
             <div class="test-grid">
-                <!-- Test Package 1 -->
+            {% for test in tests %}
                 <div class="test-card">
                     <div class="test-image">
                         <img src="https://via.placeholder.com/300x200" alt="JavaScript Quiz">
-                        <span class="category-badge">Education</span>
+                        <span class="category-badge">{{test.category}}</span>
                     </div>
                     <div class="test-content">
-                        <h3>JavaScript Fundamentals</h3>
-                        <p class="test-description">Test your knowledge of JavaScript basics and core concepts.</p>
+                        <h3>{{test.title}}</h3>
+                        <p class="test-description">{{test.description}}</p>
                         <div class="test-meta">
-                            <span><i class="fas fa-question-circle"></i> 20 Questions</span>
-                            <span><i class="fas fa-user"></i> 1.2k Attempts</span>
+                            <span><i class="fas fa-question-circle"></i> {{count}} Questions</span>
+                            <span><i class="fas fa-user"></i> {{test.maximum_attempts}} Attempts</span>
                         </div>
-                        <a href="test.html" class="btn-test">Start Test</a>
+                        <a href="{% url 'quiz' test.id %}" class="btn-test">Start Test</a>
                     </div>
                 </div>
+            {% endfor %}
 
-                <!-- Test Package 2 -->
-                <div class="test-card">
-                    <div class="test-image">
-                        <img src="https://via.placeholder.com/300x200" alt="World Capitals">
-                        <span class="category-badge">Trivia</span>
-                    </div>
-                    <div class="test-content">
-                        <h3>World Capitals Challenge</h3>
-                        <p class="test-description">How many world capitals can you name correctly?</p>
-                        <div class="test-meta">
-                            <span><i class="fas fa-question-circle"></i> 50 Questions</span>
-                            <span><i class="fas fa-user"></i> 856 Attempts</span>
-                        </div>
-                        <a href="test.html" class="btn-test">Start Test</a>
-                    </div>
-                </div>
-
-                <!-- Test Package 3 -->
-                <div class="test-card">
-                    <div class="test-image">
-                        <img src="https://via.placeholder.com/300x200" alt="Personality Test">
-                        <span class="category-badge">Fun</span>
-                    </div>
-                    <div class="test-content">
-                        <h3>Which Programming Language Are You?</h3>
-                        <p class="test-description">Fun personality test to discover which programming language matches your personality.</p>
-                        <div class="test-meta">
-                            <span><i class="fas fa-question-circle"></i> 15 Questions</span>
-                            <span><i class="fas fa-user"></i> 2.3k Attempts</span>
-                        </div>
-                        <a href="test.html" class="btn-test">Start Test</a>
-                    </div>
-                </div>
             </div>
             <div class="view-all">
                 <a href="browse.html" class="btn-view-all">View All Test Packages <i class="fas fa-arrow-right"></i></a>
