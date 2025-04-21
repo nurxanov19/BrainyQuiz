@@ -44,6 +44,7 @@ class Migration(migrations.Migration):
                 ('a', models.CharField(max_length=200)),
                 ('b', models.CharField(max_length=200)),
                 ('c', models.CharField(max_length=200)),
+
                 ('right_answer', models.CharField(help_text='E.x: a ', max_length=200)),
                 ('test', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.test')),
             ],
